@@ -2,7 +2,7 @@ import type { ApiResponse } from '@/types/race'
 
 const NEDS_API = 'https://api.neds.com.au/rest/v1/racing'
 const API_BASE_URL = import.meta.env.PROD
-  ? `https://api.allorigins.win/raw?url=${encodeURIComponent(NEDS_API)}`
+  ? `https://corsproxy.io/?${encodeURIComponent(NEDS_API)}`
   : NEDS_API
 const REQUEST_TIMEOUT = 10000
 
