@@ -12,6 +12,7 @@ defineEmits<{
 const raceStore = useRaceStore()
 const currentTime = ref(Date.now())
 const displayCount = ref(10)
+const isMobile = ref(window.innerWidth <= 768)
 
 // Get upcoming races sorted by start time
 const allUpcomingRaces = computed(() => {
@@ -25,7 +26,8 @@ const allUpcomingRaces = computed(() => {
 
 // Display limited number of races
 const upcomingRaces = computed(() => {
-  return allUpcomingRaces.value.slice(0, displayCount.value)
+  const limit = isMobile.value ? 5 : displayCount.value
+  return allUpcomingRaces.value.slice(0, limit)
 })
 
 // Check if there are more races to load
@@ -88,16 +90,23 @@ function getCountdownStyleClass(race: RaceSummary): string {
 // Update current time every second for countdown
 let timer: number | null = null
 
+function handleResize() {
+  isMobile.value = window.innerWidth <= 768
+}
+
 onMounted(() => {
   timer = window.setInterval(() => {
     currentTime.value = Date.now()
   }, 1000)
+
+  window.addEventListener('resize', handleResize)
 })
 
 onUnmounted(() => {
   if (timer !== null) {
     clearInterval(timer)
   }
+  window.removeEventListener('resize', handleResize)
 })
 </script>
 
@@ -348,6 +357,7 @@ onUnmounted(() => {
     border-radius: 0;
     border-left: none;
     border-right: none;
+    border-top: none;
   }
 
   .header {
@@ -358,17 +368,21 @@ onUnmounted(() => {
     font-size: $text-size-xl;
   }
 
+  .races {
+    max-height: 400px;
+  }
+
   .race-item {
     padding: $space-sm;
     gap: $space-xs;
   }
 
   .legend {
-    padding: $space-md;
+    display: none;
   }
 
-  .legend-items {
-    gap: $space-md;
+  .footer {
+    display: none;
   }
 }
 </style>

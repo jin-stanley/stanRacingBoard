@@ -73,6 +73,12 @@ onUnmounted(() => {
         </div>
 
         <div v-else class="main-container">
+          <UpcomingRacesSidebar
+            v-if="!raceStore.loading && raceStore.races.length > 0"
+            class="mobile-sidebar"
+            @race-click="openRaceModal"
+          />
+
           <div class="filters-section">
             <CountryFilter
               v-model="raceStore.selectedCountry"
@@ -269,6 +275,10 @@ onUnmounted(() => {
 }
 
 @media (max-width: 768px) {
+  .main-content {
+    flex-direction: column;
+  }
+
   .header {
     padding: $space-sm $space-md;
   }
@@ -282,8 +292,8 @@ onUnmounted(() => {
   }
 
   .main-container {
-    margin: $space-md;
-    border-radius: $radius-sm;
+    margin: 0;
+    border-radius: 0;
   }
 
   .loading,
@@ -296,6 +306,15 @@ onUnmounted(() => {
     gap: $space-sm;
   }
 
+  .mobile-sidebar {
+    display: block;
+  }
+
+  // Hide desktop sidebar on mobile
+  .main-content > aside {
+    display: none;
+  }
+
   .race-section {
     padding: 0 $space-md $space-lg $space-md;
   }
@@ -306,6 +325,12 @@ onUnmounted(() => {
     padding: $space-sm $space-md;
     margin-left: -$space-md;
     margin-right: -$space-md;
+  }
+}
+
+@media (min-width: 769px) {
+  .mobile-sidebar {
+    display: none;
   }
 }
 </style>
