@@ -1,0 +1,76 @@
+// Theme Colors
+$color-theme-primary: #28a745; // Green
+$color-theme-primary-dark: darken(#28a745, 8%);
+$color-theme-secondary: #ffc107; // Yellow/Amber
+
+// Colors
+$color-primary: $color-theme-primary;
+$color-primary-dark: $color-theme-primary-dark;
+$color-secondary: $color-theme-secondary;
+
+// Text Colors
+$text-color-primary: #1a1a1a;
+$text-color-secondary: #666;
+$text-color-tertiary: #999;
+$text-color-muted: #888;
+$text-color-white-100: #ffffff;
+
+// Status Colors
+$color-urgent: #dc3545;
+$color-warning: #ff6b00;
+$color-success: #28a745;
+$color-info: #17a2b8;
+
+// Background Colors
+$bg-color-white: #ffffff;
+$bg-color-light: #f5f5f5;
+$bg-color-lighter: #f8f8f8;
+$bg-color-muted: #f0f0f0;
+
+// Border Colors
+$border-color-light: #e0e0e0;
+$border-color-lighter: #f0f0f0;
+
+// Spacing
+$space-xs: 4px;
+$space-sm: 8px;
+$space-md: 12px;
+$space-lg: 16px;
+$space-xl: 20px;
+$space-2xl: 24px;
+$space-3xl: 32px;
+$space-4xl: 40px;
+
+// Font Sizes
+$text-size-xs: 11px;
+$text-size-sm: 12px;
+$text-size-md: 13px;
+$text-size-base: 14px;
+$text-size-lg: 15px;
+$text-size-xl: 16px;
+$text-size-2xl: 18px;
+$text-size-3xl: 22px;
+$text-size-4xl: 24px;
+
+// Font Weights
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+// Border Radius
+$radius-sm: 6px;
+$radius-md: 8px;
+$radius-lg: 10px;
+$radius-xl: 12px;
+
+// Shadows
+$shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+$shadow-md: 0 1px 4px rgba(0, 0, 0, 0.08);
+$shadow-lg: 0 2px 6px rgba(0, 0, 0, 0.12);
+$shadow-xl: 0 2px 8px rgba(0, 0, 0, 0.06);
+
+// Transitions
+$transition-fast: 0.15s ease;
+$transition-base: 0.2s ease;
+$transition-slow: 0.3s ease;
